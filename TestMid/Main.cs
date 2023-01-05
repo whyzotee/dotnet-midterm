@@ -1,12 +1,15 @@
-﻿using System;
+﻿using Microsoft.VisualBasic.ApplicationServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TestMid.Properties;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace TestMid
@@ -44,7 +47,6 @@ namespace TestMid
         public Main()
         {
             InitializeComponent();
-            System.Console.WriteLine(micro[0,0]);
         }
 
         private void radioButton_Select(object sender, EventArgs e)
@@ -78,14 +80,16 @@ namespace TestMid
 
         private void Item_Select(object sender, EventArgs e)
         {
-            RadioButton[] menu = { radioButton1, radioButton2, radioButton3, radioButton4 };
             Array[] group = { micro, inputD, outputD, other };
+            RadioButton[] menu = { radioButton1, radioButton2, radioButton3, radioButton4 };
+            
+            string[] name_group = { "micro", "inputD", "outputD", "other" };
             int item_select = item_listBox.SelectedIndex;
-        
             for (int i = 0; i < menu.Length; i++) 
             {
                 if (menu[i].Checked)
                 {
+                    
                     //item_img.Image = Image.FromFile($@"..\..\..\Resources\{nameof((string[,])group[i])}\{nameof((string[,])group[i])}_{i + 1}.png");
                     item_name.Text = $"Name : { ((string[,])group[i])[item_select, 0] }";
                     item_price.Text = $"Price : { ((string[,])group[i])[item_select, 1] } ฿";
