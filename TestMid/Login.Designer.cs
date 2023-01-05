@@ -40,18 +40,20 @@
             // userInput
             // 
             this.userInput.Font = new System.Drawing.Font("Kanit", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.userInput.Location = new System.Drawing.Point(268, 207);
+            this.userInput.Location = new System.Drawing.Point(234, 192);
+            this.userInput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.userInput.Name = "userInput";
-            this.userInput.Size = new System.Drawing.Size(379, 45);
+            this.userInput.Size = new System.Drawing.Size(332, 37);
             this.userInput.TabIndex = 1;
             // 
             // passInput
             // 
             this.passInput.Font = new System.Drawing.Font("Kanit", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.passInput.Location = new System.Drawing.Point(268, 321);
+            this.passInput.Location = new System.Drawing.Point(234, 278);
+            this.passInput.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.passInput.Name = "passInput";
             this.passInput.PasswordChar = '*';
-            this.passInput.Size = new System.Drawing.Size(379, 45);
+            this.passInput.Size = new System.Drawing.Size(332, 37);
             this.passInput.TabIndex = 2;
             // 
             // label2
@@ -59,9 +61,9 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Kanit", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(67, 200);
+            this.label2.Location = new System.Drawing.Point(59, 187);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(176, 54);
+            this.label2.Size = new System.Drawing.Size(144, 43);
             this.label2.TabIndex = 3;
             this.label2.Text = "Username";
             // 
@@ -70,18 +72,19 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Kanit", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(67, 312);
+            this.label3.Location = new System.Drawing.Point(59, 271);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(164, 54);
+            this.label3.Size = new System.Drawing.Size(133, 43);
             this.label3.TabIndex = 4;
             this.label3.Text = "Password";
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Kanit", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.button1.Location = new System.Drawing.Point(323, 417);
+            this.button1.Location = new System.Drawing.Point(297, 355);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(152, 47);
+            this.button1.Size = new System.Drawing.Size(121, 50);
             this.button1.TabIndex = 5;
             this.button1.Text = "Login";
             this.button1.UseVisualStyleBackColor = true;
@@ -91,7 +94,8 @@
             // 
             this.pictureBox1.Enabled = false;
             this.pictureBox1.Image = global::TestMid.Properties.Resources.logo;
-            this.pictureBox1.Location = new System.Drawing.Point(325, 28);
+            this.pictureBox1.Location = new System.Drawing.Point(284, 22);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(150, 150);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -100,16 +104,17 @@
             // 
             // Login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.ClientSize = new System.Drawing.Size(797, 507);
+            this.ClientSize = new System.Drawing.Size(697, 441);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.passInput);
             this.Controls.Add(this.userInput);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Login";
             this.Text = "ElecToy-Pos_Login";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

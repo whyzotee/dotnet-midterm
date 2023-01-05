@@ -16,15 +16,28 @@ namespace TestMid
         Checkout checkoutpage = new Checkout();
 
         public static string[,] data = new string[6,2];
-        
-        string[,] micro = new string[6,2] { 
-            { "Arduino UNO R3", "1085" }, { "Arduino Mega", "750" },
-            { "Arduino Nano", "190"}, { "Arduino Micro","395"}, 
-            { "NodeMCU ESP-8266","120"},{ "NodeMCU ESP-32","215"} 
+ 
+        string[,] micro = { 
+            { "Arduino UNO R3", "1085", "1" }, { "Arduino Mega", "750" , "1"},
+            { "Arduino Nano", "190", "1"}, { "Arduino Micro","395", "1"}, 
+            { "NodeMCU ESP-8266","120", "1"},{ "NodeMCU ESP-32","215", "1"} 
         };
-        string[] inputD = { "Switch", "Button", "Joystick", "VR" };
-        string[] outputD = { "LED (Red)", "LED (Green)", "LED (Yellow)", "LED (RGB)", "LCD Display" };
-        string[] other = { "Wheel (x2)", "Wheel (x4)", "Acrylic", "Jumper Wire", "USB Wire", "Type C Wire" };
+    
+        string[,] inputD = { 
+            { "Switch [10 PCS]", "54", "1" }, { "Button" , "19", "1"}, 
+            { "Joystick" , "30", "1"}, { "VR" , "15", "1"} 
+        };
+
+        string[,] outputD = { 
+            { "LED (Red) [10 PCS]", "10", "1" }, { "LED (Green) [10 PCS]", "10", "1" }, 
+            { "LED (Yellow) [10 PCS]", "10", "1" }, { "LED (RGB)", "28", "1" }, 
+            { "LCD Display", "60", "1" } 
+        };
+
+        string[,] other = { 
+            { "Wheel [2 PCS]" , "40", "1"}, { "Wheel [4 PCS]", "40", "1" }, { "Acrylic (10cm x 10cm)", "60", "1" },
+            { "Jumper Wire [10 PCS]", "100", "1" }, { "USB Wire (100m)", "200", "1" }, { "Type C Wire", "150", "1" } 
+        };
 
         int inCart;
 
@@ -42,23 +55,23 @@ namespace TestMid
             {
                 case "radioButton1":
                     item_listBox.Items.Clear();
-                    for (int i = 0; i < 6; i++)
+                    for (int i = 0; i < micro.GetLength(0); i++)
                         item_listBox.Items.Add(micro[i, 0]);
                     break;
                 case "radioButton2":
                     item_listBox.Items.Clear();
-                    for (int i = 0; i < inputD.Length; i++)
-                        item_listBox.Items.Add(inputD[i]);
+                    for (int i = 0; i < inputD.GetLength(0); i++)
+                        item_listBox.Items.Add(inputD[i, 0]);
                     break;
                 case "radioButton3":
                     item_listBox.Items.Clear();
-                    for (int i = 0; i < outputD.Length; i++)
-                        item_listBox.Items.Add(outputD[i]);
+                    for (int i = 0; i < outputD.GetLength(0); i++)
+                        item_listBox.Items.Add(outputD[i, 0]);
                     break;
                 case "radioButton4":
                     item_listBox.Items.Clear();
-                    for (int i = 0; i < other.Length; i++)
-                        item_listBox.Items.Add(other[i]);
+                    for (int i = 0; i < other.GetLength(0); i++)
+                        item_listBox.Items.Add(other[i, 0]);
                     break;
             }
         }
@@ -66,40 +79,17 @@ namespace TestMid
         private void Item_Select(object sender, EventArgs e)
         {
             RadioButton[] menu = { radioButton1, radioButton2, radioButton3, radioButton4 };
-            Array[] group = {micro, inputD, outputD, other};
-            
-            string item_select = item_listBox.SelectedItem.ToString();
-
-            string[] micro_img = { @"..\..\..\Resources\mirco\micro_1.jpg", @"..\..\..\Resources\mirco\micro_2.jpg" ,
-            @"..\..\..\Resources\mirco\micro_3.jpg", @"..\..\..\Resources\mirco\micro_4.png", @"..\..\..\Resources\mirco\micro_5.png"
-            , @"..\..\..\Resources\mirco\micro_6.png"};
-
+            Array[] group = { micro, inputD, outputD, other };
+            int item_select = item_listBox.SelectedIndex;
         
             for (int i = 0; i < menu.Length; i++) 
             {
                 if (menu[i].Checked)
                 {
-                    for (int j = 0; j < 6; j++)
-                    {
-                        if (item_select == micro[j, 0])
-                        {
-                            item_img.Image = Image.FromFile(micro_img[j]);
-                            item_name.Text = $"Name : {item_select}";
-                            item_price.Text = $"Price : {micro[j, 1]} ฿";
-                            item_info.Text = $"This is {item_select}";
-                        }
-                    }
-
-                    for (int j = 0; j < inputD.Length; j++)
-                    {
-                        if (item_select == inputD[j])
-                        {
-                            item_img.Image = Image.FromFile(micro_img[j]);
-                            item_name.Text = $"Name : {item_select}";
-                            item_price.Text = $"Price : {micro[j,1]} ฿";
-                            item_info.Text = $"This is {item_select}";
-                        }
-                    }
+                    //item_img.Image = Image.FromFile($@"..\..\..\Resources\{nameof((string[,])group[i])}\{nameof((string[,])group[i])}_{i + 1}.png");
+                    item_name.Text = $"Name : { ((string[,])group[i])[item_select, 0] }";
+                    item_price.Text = $"Price : { ((string[,])group[i])[item_select, 1] } ฿";
+                    item_info.Text = $"This is { ((string[,])group[i])[item_select, 0] }";
                 }
             }  
         }
@@ -114,6 +104,7 @@ namespace TestMid
                 {
                     data[i, 0] = micro[i, 0];
                     data[i, 1] = micro[i, 1];
+                    data[i, 2] = micro[i, 2];
                     MessageBox.Show($"{data[i, 0]} is added to cart!");
                 }
             }
